@@ -15,7 +15,7 @@ public class AutobazarApplication {
 
 	public static void main(String[] args) {
 
-	//	SpringApplication.run(AutobazarApplication.class,args);
+		SpringApplication.run(AutobazarApplication.class,args);
 
 		/*
 		ApplicationContext context = SpringApplication.run(AutobazarApplication.class, args);
@@ -31,8 +31,8 @@ public class AutobazarApplication {
 //		context3.getBean(BrandService.class).giveMeBrandofCar();
 
 
-		ApplicationContext context4  = SpringApplication.run(AutobazarApplication.class, args);
-		System.out.println(context4.getBean(RestApiService.class).getTodo(1L));
+//		ApplicationContext context4  = SpringApplication.run(AutobazarApplication.class, args);
+//		System.out.println(context4.getBean(RestApiService.class).getTodo(1L));
 
 	}
 }
