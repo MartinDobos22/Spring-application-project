@@ -13,7 +13,7 @@
 	<groupId>sk.dobos</groupId>
 	<artifactId>autobazar</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>autobazar</name>
+	<type>autobazar</type>
 
 	<description>Demo project for Spring Boot</description>
 	<properties>

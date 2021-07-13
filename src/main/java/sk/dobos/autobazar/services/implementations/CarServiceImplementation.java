@@ -42,12 +42,12 @@ public class CarServiceImplementation implements CarServices {
                              collect(Collectors.toList());
     }
 
+
+
+
     @Override
     public List<CarDTO> findCarByName(String type) {
-        return carRepository.
-                findByName(type).
-                stream().
-                map(car -> carMapper.carToCarDto(car)).
-                collect(Collectors.toList());
+        return carRepository.findByType(type).stream().map(car -> carMapper.carToCarDto(car)).collect(Collectors.toList());
+
     }
 }

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import sk.dobos.autobazar.services.CarServices;
 
-@Component
+//@Component
 public class AppRun {
 
     @Autowired

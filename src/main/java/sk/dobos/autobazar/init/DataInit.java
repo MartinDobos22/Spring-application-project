@@ -9,7 +9,6 @@ import sk.dobos.autobazar.services.CarServices;
 @Component
 public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
 
-    @Autowired
     CarServices carServices;
 
     public DataInit(CarServices carServices) {
