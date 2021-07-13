@@ -19,16 +19,16 @@ public class CarServiceImplementation implements CarServices {
     }
 
     @Override
-    //pri m6 hádže null v db
+    //do db hodí len poslednú vytvorenú inštanciu auta
     public Iterable<Car> createAndAddCar() {
         Car car = new Car();
         car.setType("A6");
         Car car2 = new Car();
         car.setType("M6");
         Car car3 = new Car();
-        car.setType("S500");
+        car.setType("S560");
 
-        List<Car> cars = Arrays.asList(car, car2, car3);
+        List<Car> cars = Arrays.asList(car, car3, car2);
         return carRepository.saveAll(cars);
     }
 }
