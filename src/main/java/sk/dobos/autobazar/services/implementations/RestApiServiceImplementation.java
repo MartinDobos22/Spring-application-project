@@ -1,11 +1,13 @@
 package sk.dobos.autobazar.services.implementations;
 
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import sk.dobos.autobazar.models.TodoList;
 import sk.dobos.autobazar.models.Todos;
@@ -18,46 +20,34 @@ import java.util.Arrays;
 import java.util.List;
 
 //ako načítať cudzie api
+@Service
 public class RestApiServiceImplementation implements RestApiService {
 
+    RestTemplate restTemplate;
+
+    public RestApiServiceImplementation(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
 
     @Override
     public Usd getPriceSymbol(String code) {
-
-        List<HttpMessageConverter<?>> messageConverters = new ArrayList<>();
-        MappingJackson2HttpMessageConverter converter = new MappingJackson2HttpMessageConverter();
-        converter.setSupportedMediaTypes(Arrays.asList(MediaType.ALL));
-        messageConverters.add(converter);
-
-
-        RestTemplate restTemplate = new RestTemplate();
-        restTemplate.setMessageConverters(messageConverters);
 
         Usd symbol = restTemplate.getForObject("https://api.coindesk.com/v1/bpi/currentprice.json", Usd.class);
         return symbol;
     }
 
-
-
     //
-
 
     @Override
     public Todos getTodo(Long id) {
 
-        RestTemplate restTemplate = new RestTemplate();
-
-        Todos todo = restTemplate.getForObject("https://jsonplaceholder.typicode.com/todos/150", Todos.class);
+        Todos todo = restTemplate.getForObject("https://jsonplaceholder.typicode.com/todos/1", Todos.class);
         return todo;
     }
 
 
-
-
     @Override
     public List<Todos> getTodos() {
-
-        RestTemplate restTemplate = new RestTemplate();
 
         ResponseEntity<List<Todos>> responseEntity = restTemplate.exchange(
                 "https://jsonplaceholder.typicode.com/todos",
@@ -72,10 +62,8 @@ public class RestApiServiceImplementation implements RestApiService {
 
 
 
-
     @Override
     public TodoList getTodoList() {
-        RestTemplate restTemplate = new RestTemplate();
         TodoList todoList = restTemplate.getForObject("https://jsonplaceholder.typicode.com/todos", TodoList.class);
         return todoList;
     }
@@ -83,7 +71,7 @@ public class RestApiServiceImplementation implements RestApiService {
 
 
 
-
+/*
     public static void main(String[] args) {
         RestApiServiceImplementation restApiServiceImplementation = new RestApiServiceImplementation();
         //Usd symbol = restApiServiceImplementation.getPriceSymbol("USD");
@@ -94,6 +82,6 @@ public class RestApiServiceImplementation implements RestApiService {
        // System.out.println(restApiServiceImplementation.getTodos());
         System.out.println(restApiServiceImplementation.getTodoList());
     }
-
+*/
 
 }

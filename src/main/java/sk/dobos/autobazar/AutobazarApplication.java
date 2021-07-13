@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.PropertySource;
 import sk.carmodel.ModelsOfCars;
 import sk.dobos.autobazar.services.BrandService;
+import sk.dobos.autobazar.services.RestApiService;
 import sk.dobos.autobazar.services.implementations.BrandServiceFactory;
 
 
@@ -14,7 +15,7 @@ public class AutobazarApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(AutobazarApplication.class,args);
+	//	SpringApplication.run(AutobazarApplication.class,args);
 
 		/*
 		ApplicationContext context = SpringApplication.run(AutobazarApplication.class, args);
@@ -26,8 +27,12 @@ public class AutobazarApplication {
 //		AppRun2 appRun2 = context2.getBean(AppRun2.class);
 //		appRun2.run();
 
-		ApplicationContext context3  = SpringApplication.run(AutobazarApplication.class, args);
-		context3.getBean(BrandService.class).giveMeBrandofCar();
+//		ApplicationContext context3  = SpringApplication.run(AutobazarApplication.class, args);
+//		context3.getBean(BrandService.class).giveMeBrandofCar();
+
+
+		ApplicationContext context4  = SpringApplication.run(AutobazarApplication.class, args);
+		System.out.println(context4.getBean(RestApiService.class).getTodo(1L));
 
 	}
 }
