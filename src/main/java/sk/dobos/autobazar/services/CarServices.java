@@ -14,5 +14,5 @@ public interface CarServices {
 
     List<CarDTO> getAllCars();
 
-    CarDTO findCarByName(String type);
+    List<CarDTO> findCarByName(String type);
 }

@@ -7,8 +7,8 @@ import sk.dobos.autobazar.models.dto.CarDTO;
 import sk.dobos.autobazar.repositories.CarRepository;
 import sk.dobos.autobazar.services.CarServices;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CarServiceImplementation implements CarServices {
@@ -36,11 +36,18 @@ public class CarServiceImplementation implements CarServices {
 
     @Override
     public List<CarDTO> getAllCars() {
-        return null;
+        return carRepository.findAll().
+                             stream().
+                             map(car -> carMapper.carToCarDto(car)).
+                             collect(Collectors.toList());
     }
 
     @Override
-    public CarDTO findCarByName(String type) {
-        return null;
+    public List<CarDTO> findCarByName(String type) {
+        return carRepository.
+                findByName(type).
+                stream().
+                map(car -> carMapper.carToCarDto(car)).
+                collect(Collectors.toList());
     }
 }
