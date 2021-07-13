@@ -5,12 +5,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import sk.dobos.autobazar.repositories.CarRepository;
 
+//mvc controller
 @Controller
-public class CarController {
+@RequestMapping("/mvc")
+public class CarMvcController {
 
     CarRepository carRepository;
 
-    public CarController(CarRepository carRepository) {
+    public CarMvcController(CarRepository carRepository) {
         this.carRepository = carRepository;
     }
 

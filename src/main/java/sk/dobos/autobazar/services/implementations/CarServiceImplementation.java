@@ -20,7 +20,7 @@ public class CarServiceImplementation implements CarServices {
 
     @Override
     //do db hodí len poslednú vytvorenú inštanciu auta
-    public Iterable<Car> createAndAddCar() {
+    public Car createAndAddCar() {
         Car car = new Car();
         car.setType("A6");
         Car car2 = new Car();
@@ -28,7 +28,6 @@ public class CarServiceImplementation implements CarServices {
         Car car3 = new Car();
         car.setType("S560");
 
-        List<Car> cars = Arrays.asList(car, car3, car2);
-        return carRepository.saveAll(cars);
+        return carRepository.save(car2);
     }
 }
