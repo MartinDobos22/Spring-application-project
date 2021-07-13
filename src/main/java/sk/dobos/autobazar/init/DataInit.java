@@ -19,7 +19,7 @@ public class DataInit implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
         carServices.createAndAddCar();
-        carServices.createAndAddCar();
+
 
     }
 }
