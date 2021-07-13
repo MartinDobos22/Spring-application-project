@@ -42,12 +42,34 @@ public class CarServiceImplementation implements CarServices {
                              collect(Collectors.toList());
     }
 
-
-
-
     @Override
     public List<CarDTO> findCarByName(String type) {
         return carRepository.findByType(type).stream().map(car -> carMapper.carToCarDto(car)).collect(Collectors.toList());
 
+    }
+
+    @Override
+    public CarDTO addCar(CarDTO carDTO) {
+        return carMapper.carToCarDto(carRepository.save(carMapper.carDtoToCar(carDTO)));
+    }
+
+    public CarDTO updateCar(CarDTO carDTO, long carId) {
+       return carMapper.carToCarDto(carRepository.findById(carId).map(car -> {
+                                            car.setType(carDTO.getType());
+                                            car.setBrands(carDTO.getBrandsOfTheCar());
+                                            return carRepository.save(car);
+            }
+
+        ).orElseGet(() -> {
+            carDTO.setId(carId);
+            return carRepository.save(carMapper.carDtoToCar(carDTO));
+            }
+        )
+       );
+    }
+
+    @Override
+    public void deleteMovie(long id) {
+        carRepository.deleteById(id);
     }
 }

@@ -29,9 +29,25 @@ public class CarRestController {
     }
 
 
-    @GetMapping("/car/{id}")
+    @GetMapping("/cars/{id}")
     CarDTO getCarById(@PathVariable("id") long carId) {
         return carServices.getCarById(carId);
 
+    }
+
+    @PostMapping("/cars")
+    CarDTO addCar(@RequestBody CarDTO carDTO){
+        return carServices.addCar(carDTO);
+    }
+
+     @PutMapping("/cars/{id}")
+        CarDTO updateCar(@RequestBody CarDTO carDTO, @PathVariable("id") long carId){
+        return carServices.updateCar(carDTO, carId);
+        }
+
+
+    @DeleteMapping
+    public void deleteMovie(long id){
+        carServices.deleteMovie(id);
     }
 }

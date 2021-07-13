@@ -15,4 +15,10 @@ public interface CarServices {
     List<CarDTO> getAllCars();
 
     List<CarDTO> findCarByName(String type);
+
+    CarDTO addCar(CarDTO carDTO);
+
+    CarDTO updateCar(CarDTO carDTO, long carId);
+
+    void deleteMovie(long id);
 }
