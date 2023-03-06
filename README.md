@@ -15,6 +15,7 @@ How to implement CRUD operations using Hibernate and Spring Data JPA
 How to implement validation using Hibernate Validator
 How to handle exceptions and errors in a Spring Boot application
 How to write JUnit tests for Spring Boot applications
+
 Requirements
 JDK 8 or higher
 Maven 3.2 or higher
