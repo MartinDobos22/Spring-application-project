@@ -3,7 +3,7 @@ This is a sample Java application built using Spring framework and Hibernate ORM
 
 The application is built with following technologies:
 
-Java 8
+Java 8 <br />
 Spring Boot 2.5.4
 Hibernate 5.4.32.Final
 MySQL 8.0.25
