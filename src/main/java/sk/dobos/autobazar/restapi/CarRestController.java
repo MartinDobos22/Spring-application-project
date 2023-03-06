@@ -18,7 +18,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 //rest controller
 @RestController
-@RequestMapping("/restapi")
+@RequestMapping("/api")
 public class CarRestController {
 
     CarServices carServices;
